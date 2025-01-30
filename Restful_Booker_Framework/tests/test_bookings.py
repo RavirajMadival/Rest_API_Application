@@ -57,7 +57,7 @@ def test_get_all_booking_ids(client):
 def test_get_new_booking_details(client):
     for i, booking_id in enumerate(new_booking_ids):
         booking_details = client.get_booking(booking_id=booking_id)
-        logger.info(f"Details of New Booking{i + 1}: {booking_details}")
+        logger.info(f"Details of New Booking{i + 1} is: {booking_details}")
 
 
 def test_update_booking(client):
@@ -80,5 +80,6 @@ def test_delete_booking(client):
     Test case for deleting a booking.
     Verifies that a booking is deleted successfully and that the correct status code is returned.
     """
+    logger.info(f"Deleting Booking ID --> {new_booking_ids[-1]}")
     delete_status = client.delete_booking(new_booking_ids[-1])
-    logger.info(f"Deleted booking ID {new_booking_ids[-1]}, status_code:{delete_status}")
+    logger.info(f"Deleted booking ID {new_booking_ids[-1]} and status_code:{delete_status}")
